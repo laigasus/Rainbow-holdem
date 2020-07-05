@@ -1,15 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#define CARDMAX 55
-
-typedef struct cards
-{
-    int num;
-    char shape;
-}CARD;
-
+#include "gameData.h"
 // 배열을 섞는 함수 
 void shuffle(CARD *arr) 
 { 
@@ -25,9 +15,8 @@ void shuffle(CARD *arr)
     } 
 }
 
-void MakeCard()
+void MakeCard(CARD *cardList)
 {
-	CARD cardList[55];	//= {1x1, 2x2, ..., 9x9, 10x10};
 	int numCount=1;
 	int count=0; 
 	do
@@ -42,9 +31,11 @@ void MakeCard()
 		//printf("\n");
 	}while(count<55);
 	
-	for(int i=0; i<55; i++) printf("%2d ", cardList[i].num);
+	//for(int i=0; i<55; i++) printf("%2d ", cardList[i].num);
 	printf("\n");
 	shuffle(cardList);
-	for(int i=0; i<55; i++) printf("%2d ", cardList[i].num);
-	
+  
+  for(int i=0; i<16; i++) printf("%2d ", cardList[i].num);  //check shuffle cards stable
+  
+  printf("\n\nshuffled!\n\n");
 }
