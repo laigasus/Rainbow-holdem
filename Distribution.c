@@ -4,6 +4,18 @@
 void distribute(CARD *cardList)
 {
     int distributeCount = 0;
+    int l = 1;
+
+    printf("dealer : ");
+    for (int i = 0; i < 4; i++)
+    {
+        dealer.shareCard[i] = cardList[distributeCount++];
+        printf("%-3d", dealer.shareCard[i].num);
+    }
+    puts("");
+    for (int i = 0; i++ < 50;)
+        printf("-");
+    puts("");
 
     for (int j = 0; j < 4; j++)
     {
@@ -13,15 +25,15 @@ void distribute(CARD *cardList)
             player[j].playerCard[k] = cardList[distributeCount++];
             printf("%-3d", player[j].playerCard[k].num);
         }
-        printf("\n\n");
+        if (l == 2)
+        {
+            printf("\n\n");
+            l = 0;
+        }
+        else
+            printf("\t\t");
+        l++;
     }
-    printf("dealer : ");
-    for (int i = 0; i < 4; i++)
-    {
-        dealer.shareCard[i] = cardList[distributeCount++];
-        printf("%-3d", dealer.shareCard[i].num);
-    }
-    puts("");
 
     printf("\ndistributed\n");
 }

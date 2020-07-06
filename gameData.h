@@ -18,6 +18,8 @@ typedef struct player_info
     CARD playerCard[3];
     bool isRAINBOW;
     int coin;
+    char condition;
+    int sumCard;
 } USER;
 
 typedef struct dealer_info
